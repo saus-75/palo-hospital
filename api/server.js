@@ -8,18 +8,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
+let hospitalDB = {};
+
 const retrieveHospitalList = async () => {
-    const response = await fetch('http://dmmw-api.australiaeast.cloudapp.azure.com:8080/hospitals?limit=100&page=0');
+    const response = await fetch('http://dmmw-api.australiaeast.cloudapp.azure.com:8080/hospitals?limit=40');
     const list = await response.json();
-    return list;
+    console.log(list);
+    return list._embedded.hospitals;
 }
 
-app.get('/getHospitals', async (req, res) => {
-    const list = await retrieveHospitalList();
-    res.send({hospitals: list});
+app.get('/getHospitals', (req, res) => {
+    res.send({ hospitals: hospitalDB});
 
 });
 
 app.listen(port, async() => {
     console.log(`Listening on port ${port}`);
+    console.log('Initialising hospital data retrieval...');
+    hospitalDB = await retrieveHospitalList();
 });

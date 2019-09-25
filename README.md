@@ -1,18 +1,17 @@
-# You will need NPM to run this webapp
-# As well as Nodemon
-
-Install Nodemon Globally:
-```
-  npm install -g nodemon
-```
-
 Install Dependencies:
 ```
-  npm install
+yarn install
 ```
 
-Run App:
+Start Server:
+
 ```
-   npm run-script dev
+yarn serve
+```
+
+Start Client:
+
+```
+yarn client
 ```
 

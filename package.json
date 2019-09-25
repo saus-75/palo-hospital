@@ -19,7 +19,7 @@
   },
   "scripts": {
     "client": "yarn start",
-    "server": "./node_modules/.bin/nodemon ./api/server.js",
+    "serve": "./node_modules/.bin/nodemon ./api/server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
