@@ -1,0 +1,15 @@
+.About {
+  text-align: center;
+}
+
+.About .ui.header.about {
+  margin: 5vw 5vw;
+}
+
+.About .ui.grid {
+  margin: 0vw 10vw;
+}
+.About .column .info {
+  text-align: left;
+  vertical-align: middle;
+}

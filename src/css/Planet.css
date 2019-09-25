@@ -1,0 +1,11 @@
+.Planet {
+  text-align: center;
+}
+
+.Planet .ui.header {
+  margin: 5vw 5vw;
+}
+
+.Planet .ui.grid {
+  margin: 0vw 10vw;
+}
