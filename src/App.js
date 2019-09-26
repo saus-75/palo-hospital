@@ -1,25 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from './app/Header';
-// import Home from './app/Home';
-// import Planet from './app/Planet';
-// import About from './app/About';
-// import Contact from './app/Contact';
+import { Router, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+
+import Header from './components/Header/Header';
+import Home from './components/Home/Home';
+import HospitalsOverview from './components/HospitalsOverview/HospitalsOverview';
+
+const history = createBrowserHistory();
 
 const App = () => {
-    return (
-      <Router>
-        <div className="App">
-          <Header/>
-          <Switch>
-            {/* <Route exact path="/" component={Home} /> */}
-            {/* <Route path="/planet" component={Planet} /> */}
-            {/* <Route path="/about" component={About} /> */}
-            {/* <Route path="/contact" component={Contact} /> */}
-          </Switch>
-        </div>
-      </Router>
-    );
-}
+  return (
+    <Router history={history}>
+      <Header history={history} />
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/hospitalsOverview' component={HospitalsOverview} />
+      </Switch>
+    </Router>
+  );
+};
 
 export default App;
