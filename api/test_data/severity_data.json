@@ -1,0 +1,7 @@
+[
+  { "label": "Non-urgent", "value": 0 },
+  { "label": "Less Urgent", "value": 1 },
+  { "label": "Urgent", "value": 2 },
+  { "label": "Danger", "value": 3 },
+  { "label": "Lethal", "value": 4 }
+]

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heading } from 'evergreen-ui';
+import { withRouter } from 'react-router';
 import HomeStyles from './Home.styles';
 import IllnessForm from '../Forms/IllnessForm';
 
@@ -12,10 +13,10 @@ const Home = ({ history }) => {
         Palo.Hospital
       </Heading>
       <FormPane>
-        <IllnessForm />
+        <IllnessForm history={history} />
       </FormPane>
     </HomePane>
   );
 };
 
-export default Home;
+export default withRouter(Home);

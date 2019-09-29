@@ -1,0 +1,46 @@
+{
+  "54dde103-58b1-44d2-94fa-f7452ce3634b": {
+    "firstName": "Jill ",
+    "lastName": "Ha",
+    "illness": {
+      "name": "Death's Delusions",
+      "id": 4
+    },
+    "severity": 2,
+    "totalWaitTime": "1.72",
+    "hospitalId": 2
+  },
+  "75174942-9416-45b6-93db-74b74890c7ca": {
+    "firstName": "Ronny",
+    "lastName": "Chase",
+    "illness": {
+      "name": "Whispering Hepatitis",
+      "id": 6
+    },
+    "severity": 1,
+    "totalWaitTime": "2.23",
+    "hospitalId": 2
+  },
+  "76ef97df-1fcd-49f1-b5cc-3d43415b6013": {
+    "firstName": "Sebastian",
+    "lastName": "O'Hare",
+    "illness": {
+      "name": "Whispering Hepatitis",
+      "id": 6
+    },
+    "severity": 3,
+    "totalWaitTime": "3.93",
+    "hospitalId": 6
+  },
+  "68002e10-e537-44c1-8504-c70cf7605da3": {
+    "firstName": "Murloc",
+    "lastName": "Jenkins",
+    "illness": {
+      "name": "Whispering Hepatitis",
+      "id": 6
+    },
+    "severity": 1,
+    "totalWaitTime": "6.63",
+    "hospitalId": 10
+  }
+}

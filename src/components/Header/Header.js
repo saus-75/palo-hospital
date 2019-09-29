@@ -15,6 +15,9 @@ const Header = ({ history }) => {
         <Tab padding='15px' color='#f3f3f3' size={500} onSelect={() => history.push('/hospitalsOverview')}>
           Hospitals
         </Tab>
+        <Tab padding='15px' color='#f3f3f3' size={500} onSelect={() => history.push('/patients')}>
+          Patients
+        </Tab>
       </HeaderTablist>
     </HeaderPane>
   );
