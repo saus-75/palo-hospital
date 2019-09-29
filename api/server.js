@@ -2,8 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const uuid = require('uuid/v4');
 
-// const hospitals = require('./test_data/hospital_data.json');
-// const illnesses = require('./test_data/illness_data.json');
+const hospitals = require('./test_data/hospital_data.json');
+const illnesses = require('./test_data/illness_data.json');
 const severity = require('./test_data/severity_data.json');
 const patient = require('./test_data/patient_data.json');
 
