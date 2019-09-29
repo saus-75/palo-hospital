@@ -1,0 +1,278 @@
+[
+  {
+    "id": 1,
+    "name": "St Vincent's Hospital",
+    "waitingList": [
+      { "patientCount": 10, "levelOfPain": 0, "averageProcessTime": 20 },
+      { "patientCount": 5, "levelOfPain": 1, "averageProcessTime": 33 },
+      { "patientCount": 1, "levelOfPain": 2, "averageProcessTime": 15 },
+      { "patientCount": 10, "levelOfPain": 3, "averageProcessTime": 39 },
+      { "patientCount": 2, "levelOfPain": 4, "averageProcessTime": 33 }
+    ],
+    "location": { "lat": -33.880409, "lng": 151.220958 }
+  },
+  {
+    "id": 2,
+    "name": "Royal Prince Alfred Hospital",
+    "waitingList": [
+      { "patientCount": 0, "levelOfPain": 0, "averageProcessTime": 60 },
+      { "patientCount": 1, "levelOfPain": 1, "averageProcessTime": 15 },
+      { "patientCount": 2, "levelOfPain": 2, "averageProcessTime": 16 },
+      { "patientCount": 0, "levelOfPain": 3, "averageProcessTime": 87 },
+      { "patientCount": 1, "levelOfPain": 4, "averageProcessTime": 71 }
+    ],
+    "location": { "lat": -33.889406, "lng": 151.183488 }
+  },
+  {
+    "id": 3,
+    "name": "Royal North Shore Hospital",
+    "waitingList": [
+      { "patientCount": 4, "levelOfPain": 0, "averageProcessTime": 75 },
+      { "patientCount": 4, "levelOfPain": 1, "averageProcessTime": 25 },
+      { "patientCount": 4, "levelOfPain": 2, "averageProcessTime": 5 },
+      { "patientCount": 4, "levelOfPain": 3, "averageProcessTime": 60 },
+      { "patientCount": 14, "levelOfPain": 4, "averageProcessTime": 87 }
+    ],
+    "location": { "lat": -33.820992, "lng": 151.191415 }
+  },
+  {
+    "id": 4,
+    "name": "Sydney Children's Hospital",
+    "waitingList": [
+      { "patientCount": 2, "levelOfPain": 0, "averageProcessTime": 30 },
+      { "patientCount": 11, "levelOfPain": 1, "averageProcessTime": 29 },
+      { "patientCount": 10, "levelOfPain": 2, "averageProcessTime": 44 },
+      { "patientCount": 2, "levelOfPain": 3, "averageProcessTime": 16 },
+      { "patientCount": 11, "levelOfPain": 4, "averageProcessTime": 75 }
+    ],
+    "location": { "lat": -33.917286, "lng": 151.23767 }
+  },
+  {
+    "id": 5,
+    "name": "Prince of Wales Hospital",
+    "waitingList": [
+      { "patientCount": 0, "levelOfPain": 0, "averageProcessTime": 23 },
+      { "patientCount": 2, "levelOfPain": 1, "averageProcessTime": 20 },
+      { "patientCount": 2, "levelOfPain": 2, "averageProcessTime": 28 },
+      { "patientCount": 3, "levelOfPain": 3, "averageProcessTime": 25 },
+      { "patientCount": 21, "levelOfPain": 4, "averageProcessTime": 65 }
+    ],
+    "location": { "lat": -33.91851, "lng": 151.23897 }
+  },
+  {
+    "id": 6,
+    "name": "Ryde Hospital",
+    "waitingList": [
+      { "patientCount": 1, "levelOfPain": 0, "averageProcessTime": 40 },
+      { "patientCount": 1, "levelOfPain": 1, "averageProcessTime": 38 },
+      { "patientCount": 1, "levelOfPain": 2, "averageProcessTime": 50 },
+      { "patientCount": 4, "levelOfPain": 3, "averageProcessTime": 30 },
+      { "patientCount": 4, "levelOfPain": 4, "averageProcessTime": 29 }
+    ],
+    "location": { "lat": -33.796271, "lng": 151.089709 }
+  },
+  {
+    "id": 7,
+    "name": "Concord Repatriation General Hospital",
+    "waitingList": [
+      { "patientCount": 5, "levelOfPain": 0, "averageProcessTime": 42 },
+      { "patientCount": 1, "levelOfPain": 1, "averageProcessTime": 16 },
+      { "patientCount": 2, "levelOfPain": 2, "averageProcessTime": 80 },
+      { "patientCount": 5, "levelOfPain": 3, "averageProcessTime": 44 },
+      { "patientCount": 4, "levelOfPain": 4, "averageProcessTime": 23 }
+    ],
+    "location": { "lat": -33.835132, "lng": 151.096655 }
+  },
+  {
+    "id": 8,
+    "name": "St George Hospital",
+    "waitingList": [
+      { "patientCount": 5, "levelOfPain": 0, "averageProcessTime": 11 },
+      { "patientCount": 5, "levelOfPain": 1, "averageProcessTime": 42 },
+      { "patientCount": 5, "levelOfPain": 2, "averageProcessTime": 37 },
+      { "patientCount": 15, "levelOfPain": 3, "averageProcessTime": 39 },
+      { "patientCount": 5, "levelOfPain": 4, "averageProcessTime": 68 }
+    ],
+    "location": { "lat": -33.965493, "lng": 151.134032 }
+  },
+  {
+    "id": 9,
+    "name": "Northern Beaches Hospital",
+    "waitingList": [
+      { "patientCount": 10, "levelOfPain": 0, "averageProcessTime": 21 },
+      { "patientCount": 10, "levelOfPain": 1, "averageProcessTime": 41 },
+      { "patientCount": 21, "levelOfPain": 2, "averageProcessTime": 39 },
+      { "patientCount": 10, "levelOfPain": 3, "averageProcessTime": 40 },
+      { "patientCount": 10, "levelOfPain": 4, "averageProcessTime": 38 }
+    ],
+    "location": { "lat": -33.7504, "lng": 151.2326 }
+  },
+  {
+    "id": 10,
+    "name": "Auburn Hospital & Community Health Services",
+    "waitingList": [
+      { "patientCount": 1, "levelOfPain": 0, "averageProcessTime": 36 },
+      { "patientCount": 6, "levelOfPain": 1, "averageProcessTime": 20 },
+      { "patientCount": 3, "levelOfPain": 2, "averageProcessTime": 18 },
+      { "patientCount": 4, "levelOfPain": 3, "averageProcessTime": 50 },
+      { "patientCount": 6, "levelOfPain": 4, "averageProcessTime": 4 }
+    ],
+    "location": { "lat": -33.860402, "lng": 151.03362 }
+  },
+  {
+    "id": 11,
+    "name": "Canterbury Hospital",
+    "waitingList": [
+      { "patientCount": 9, "levelOfPain": 0, "averageProcessTime": 25 },
+      { "patientCount": 7, "levelOfPain": 1, "averageProcessTime": 60 },
+      { "patientCount": 2, "levelOfPain": 2, "averageProcessTime": 49 },
+      { "patientCount": 2, "levelOfPain": 3, "averageProcessTime": 16 },
+      { "patientCount": 7, "levelOfPain": 4, "averageProcessTime": 80 }
+    ],
+    "location": { "lat": -33.9196, "lng": 151.0984 }
+  },
+  {
+    "id": 12,
+    "name": "Sutherland Hospital & Community Health Service",
+    "waitingList": [
+      { "patientCount": 9, "levelOfPain": 0, "averageProcessTime": 15 },
+      { "patientCount": 11, "levelOfPain": 1, "averageProcessTime": 32 },
+      { "patientCount": 15, "levelOfPain": 2, "averageProcessTime": 53 },
+      { "patientCount": 9, "levelOfPain": 3, "averageProcessTime": 11 },
+      { "patientCount": 11, "levelOfPain": 4, "averageProcessTime": 49 }
+    ],
+    "location": { "lat": -34.036834, "lng": 151.116591 }
+  },
+  {
+    "id": 13,
+    "name": "Hornsby Ku-ring-gai Hospital",
+    "waitingList": [
+      { "patientCount": 18, "levelOfPain": 0, "averageProcessTime": 32 },
+      { "patientCount": 1, "levelOfPain": 1, "averageProcessTime": 12 },
+      { "patientCount": 11, "levelOfPain": 2, "averageProcessTime": 43 },
+      { "patientCount": 18, "levelOfPain": 3, "averageProcessTime": 37 },
+      { "patientCount": 4, "levelOfPain": 4, "averageProcessTime": 91 }
+    ],
+    "location": { "lat": -33.701761, "lng": 151.113038 }
+  },
+  {
+    "id": 14,
+    "name": "Bankstown Lidcombe Hospital",
+    "waitingList": [
+      { "patientCount": 9, "levelOfPain": 0, "averageProcessTime": 58 },
+      { "patientCount": 4, "levelOfPain": 1, "averageProcessTime": 82 },
+      { "patientCount": 2, "levelOfPain": 2, "averageProcessTime": 36 },
+      { "patientCount": 9, "levelOfPain": 3, "averageProcessTime": 41 },
+      { "patientCount": 4, "levelOfPain": 4, "averageProcessTime": 39 }
+    ],
+    "location": { "lat": -33.931975, "lng": 151.02141 }
+  },
+  {
+    "id": 15,
+    "name": "Fairfield Hospital",
+    "waitingList": [
+      { "patientCount": 9, "levelOfPain": 0, "averageProcessTime": 55 },
+      { "patientCount": 1, "levelOfPain": 1, "averageProcessTime": 29 },
+      { "patientCount": 1, "levelOfPain": 2, "averageProcessTime": 49 },
+      { "patientCount": 9, "levelOfPain": 3, "averageProcessTime": 36 },
+      { "patientCount": 4, "levelOfPain": 4, "averageProcessTime": 90 }
+    ],
+    "location": { "lat": -33.857382, "lng": 150.9043 }
+  },
+  {
+    "id": 16,
+    "name": "Liverpool Hospital",
+    "waitingList": [
+      { "patientCount": 1, "levelOfPain": 0, "averageProcessTime": 46 },
+      { "patientCount": 0, "levelOfPain": 1, "averageProcessTime": 16 },
+      { "patientCount": 5, "levelOfPain": 2, "averageProcessTime": 52 },
+      { "patientCount": 6, "levelOfPain": 3, "averageProcessTime": 101 },
+      { "patientCount": 7, "levelOfPain": 4, "averageProcessTime": 25 }
+    ],
+    "location": { "lat": -33.920356, "lng": 150.929298 }
+  },
+  {
+    "id": 17,
+    "name": "Blacktown Hospital",
+    "waitingList": [
+      { "patientCount": 7, "levelOfPain": 0, "averageProcessTime": 19 },
+      { "patientCount": 3, "levelOfPain": 1, "averageProcessTime": 40 },
+      { "patientCount": 2, "levelOfPain": 2, "averageProcessTime": 36 },
+      { "patientCount": 7, "levelOfPain": 3, "averageProcessTime": 60 },
+      { "patientCount": 3, "levelOfPain": 4, "averageProcessTime": 49 }
+    ],
+    "location": { "lat": -33.7769, "lng": 150.917301 }
+  },
+  {
+    "id": 18,
+    "name": "Mount Druitt Hospital",
+    "waitingList": [
+      { "patientCount": 1, "levelOfPain": 0, "averageProcessTime": 22 },
+      { "patientCount": 2, "levelOfPain": 1, "averageProcessTime": 34 },
+      { "patientCount": 3, "levelOfPain": 2, "averageProcessTime": 9 },
+      { "patientCount": 4, "levelOfPain": 3, "averageProcessTime": 87 },
+      { "patientCount": 2, "levelOfPain": 4, "averageProcessTime": 102 }
+    ],
+    "location": { "lat": -33.764752, "lng": 150.827445 }
+  },
+  {
+    "id": 19,
+    "name": "Campbelltown Hospital",
+    "waitingList": [
+      { "patientCount": 0, "levelOfPain": 0, "averageProcessTime": 41 },
+      { "patientCount": 2, "levelOfPain": 1, "averageProcessTime": 20 },
+      { "patientCount": 3, "levelOfPain": 2, "averageProcessTime": 10 },
+      { "patientCount": 9, "levelOfPain": 3, "averageProcessTime": 510 },
+      { "patientCount": 2, "levelOfPain": 4, "averageProcessTime": 102 }
+    ],
+    "location": { "lat": -34.079849, "lng": 150.803375 }
+  },
+  {
+    "id": 20,
+    "name": "Gosford Hospital",
+    "waitingList": [
+      { "patientCount": 4, "levelOfPain": 0, "averageProcessTime": 76 },
+      { "patientCount": 2, "levelOfPain": 1, "averageProcessTime": 36 },
+      { "patientCount": 1, "levelOfPain": 2, "averageProcessTime": 19 },
+      { "patientCount": 4, "levelOfPain": 3, "averageProcessTime": 82 },
+      { "patientCount": 2, "levelOfPain": 4, "averageProcessTime": 410 }
+    ],
+    "location": { "lat": -33.419599, "lng": 151.340264 }
+  },
+  {
+    "id": 21,
+    "name": "Wollongong Hospital",
+    "waitingList": [
+      { "patientCount": 11, "levelOfPain": 0, "averageProcessTime": 73 },
+      { "patientCount": 2, "levelOfPain": 1, "averageProcessTime": 24 },
+      { "patientCount": 4, "levelOfPain": 2, "averageProcessTime": 14 },
+      { "patientCount": 11, "levelOfPain": 3, "averageProcessTime": 58 },
+      { "patientCount": 21, "levelOfPain": 4, "averageProcessTime": 82 }
+    ],
+    "location": { "lat": -34.42442, "lng": 150.884 }
+  },
+  {
+    "id": 22,
+    "name": "Shellharbour Hospital",
+    "waitingList": [
+      { "patientCount": 7, "levelOfPain": 0, "averageProcessTime": 8 },
+      { "patientCount": 5, "levelOfPain": 1, "averageProcessTime": 77 },
+      { "patientCount": 5, "levelOfPain": 2, "averageProcessTime": 28 },
+      { "patientCount": 7, "levelOfPain": 3, "averageProcessTime": 36 },
+      { "patientCount": 5, "levelOfPain": 4, "averageProcessTime": 55 }
+    ],
+    "location": { "lat": -34.559028, "lng": 150.841048 }
+  },
+  {
+    "id": 23,
+    "name": "Sydney Hospital & Sydney Eye Hospital",
+    "waitingList": [
+      { "patientCount": 5, "levelOfPain": 0, "averageProcessTime": 92 },
+      { "patientCount": 5, "levelOfPain": 1, "averageProcessTime": 47 },
+      { "patientCount": 1, "levelOfPain": 2, "averageProcessTime": 48 },
+      { "patientCount": 5, "levelOfPain": 4, "averageProcessTime": 0 },
+      { "patientCount": 5, "levelOfPain": 3, "averageProcessTime": 99 }
+    ],
+    "location": { "lat": -33.868919, "lng": 151.212122 }
+  }
+]
