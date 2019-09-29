@@ -3,45 +3,31 @@ import services from './services';
 const { getRequest, postRequest } = services;
 
 const getAllHospitals = async () => {
-  const request = await getRequest({ link: '/getAllHospitals' });
-  const list = await request.json();
-  return list;
+  return await getRequest({ link: '/getAllHospitals' });
 };
 
 const getAllIllnesses = async () => {
-  const request = await getRequest({ link: '/getAllIllnesses' });
-  const list = await request.json();
-  return list;
+  return await getRequest({ link: '/getAllIllnesses' });
 };
 
 const getAllSeverity = async () => {
-  const request = await getRequest({ link: '/getAllSeverity' });
-  const list = await request.json();
-  return list;
+  return await getRequest({ link: '/getAllSeverity' });
 };
 
 const getAllPatients = async () => {
-  const request = await getRequest({ link: '/getAllPatients' });
-  const list = await request.json();
-  return list;
+  return await getRequest({ link: '/getAllPatients' });
 };
 
 const getHospitalsBySeverity = async ({ severityId }) => {
-  const request = await getRequest({ link: `/getHospitalsBySeverity?severityId=${severityId}` });
-  const list = await request.json();
-  return list;
+  return await getRequest({ link: `/getHospitalsBySeverity?severityId=${severityId}` });
 };
 
 const getPatient = async ({ userId }) => {
-  const request = await getRequest({ link: `/getPatient?userId=${userId}` });
-  const list = await request.json();
-  return list;
+  return await getRequest({ link: `/getPatient?userId=${userId}` });
 };
 
 const postPatientForm = async ({ formData }) => {
-  const request = await postRequest({ link: '/postPatientForm', body: JSON.stringify(formData) });
-  const list = await request.json();
-  return list;
+  return await postRequest({ link: '/postPatientForm', body: JSON.stringify(formData) });
 };
 
 export default {

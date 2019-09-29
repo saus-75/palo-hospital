@@ -1,15 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const fetch = require('node-fetch');
 const uuid = require('uuid/v4');
+
+// const hospitals = require('./test_data/hospital_data.json');
+// const illnesses = require('./test_data/illness_data.json');
+const severity = require('./test_data/severity_data.json');
+const patient = require('./test_data/patient_data.json');
+
+const services = require('./services');
+const { retrieveHospitalList, retrieveIllnessList, calculateWaitingTime } = services;
 
 const app = express();
 const port = process.env.PORT || 5000;
-
-const hospitals = require('./test_data/hospital_data.json');
-const illnesses = require('./test_data/illness_data.json');
-const severity = require('./test_data/severity_data.json');
-const patient = require('./test_data/patient_data.json');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,54 +23,13 @@ const illnessDB = [];
 const severityDB = severity;
 const patientDB = patient;
 
-const createHospitalAndWaitListDb = ({ hospitals }) => {
+const createDB = ({ hospitals, illnesses }) => {
   hospitals.forEach(hospital => {
     const { id, name, location, waitingList } = hospital;
     hospitalDB.push({ id, name, location });
     waitListDB[id] = waitingList;
   });
-};
-
-const retrieveHospitalList = async link => {
-  try {
-    const response = await fetch(link);
-    const list = await response.json();
-
-    let hospitals = list._embedded.hospitals;
-
-    if (list._links.next) {
-      const { href } = list._links.next;
-      hospitals.push(...(await retrieveHospitalList(href)));
-    }
-    return hospitals;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const retrieveIllnessList = async link => {
-  try {
-    const response = await fetch(link);
-    const list = await response.json();
-
-    let illnesses = list._embedded.illnesses.map(illness => illness.illness);
-
-    if (list._links.next) {
-      const { href } = list._links.next;
-      illnesses.push(...(await retrieveIllnessList(href)));
-    }
-    return illnesses;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const calculateWaitingTime = waitingList => {
-  return (waitingList.reduce((a, b) => a + +b.averageProcessTime * b.patientCount, 0) / 60).toFixed(2);
-};
-
-const addPatient = ({ hospitalId, severity }) => {
-  waitListDB[hospitalId][severity].patientCount += 1;
+  illnessDB.push(...illnesses);
 };
 
 app.get('/getAllHospitals', (req, res) => {
@@ -117,7 +78,7 @@ app.post('/postPatientForm', (req, res) => {
   const { body } = req;
   const { firstName, lastName, illness, severity, hospital } = body;
 
-  addPatient({ hospitalId: hospital.id, severity: severity });
+  waitListDB[hospital.id][severity].patientCount += 1;
 
   patientDB[userId] = {
     firstName,
@@ -149,16 +110,13 @@ app.get('/getPatient', (req, res) => {
 
 app.listen(port, async () => {
   console.log('--------------------------------------');
-  console.log('Initialising Hospital Database...');
-  // const hospitals = await retrieveHospitalList('http://dmmw-api.australiaeast.cloudapp.azure.com:8080/hospitals');
-
-  createHospitalAndWaitListDb({ hospitals });
-  console.log('Hospital Database Initialised');
+  console.log('Fetching Hospital Info...');
+  const hospitals = await retrieveHospitalList('http://dmmw-api.australiaeast.cloudapp.azure.com:8080/hospitals');
+  console.log('Fetching Illness Info...');
+  const illnesses = await retrieveIllnessList('http://dmmw-api.australiaeast.cloudapp.azure.com:8080/illnesses');
   console.log('--------------------------------------');
-  console.log('Initialising Illness Database...');
-  // illnessDB.push(...(await retrieveIllnessList('http://dmmw-api.australiaeast.cloudapp.azure.com:8080/illnesses')));
-  illnessDB.push(...illnesses);
-  console.log('Illness Database Initialised');
+  console.log('Database Initialising...');
+  createDB({ hospitals, illnesses });
   console.log('--------------------------------------');
   console.log(`Listening on port ${port}...`);
 });

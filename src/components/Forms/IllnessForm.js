@@ -131,7 +131,7 @@ const IllnessForm = ({ history }) => {
       )}
       {illness && severities && (
         <FormField margin='15px' width='100%' label='Rate the severity of the Illness'>
-          <SegmentedControl options={severities} value={severity} onChange={handleSeveritySelection} />
+          <SegmentedControl options={severities} defaultValue={0} value={severity} onChange={handleSeveritySelection} />
         </FormField>
       )}
       {illness && (severity !== null || severity !== undefined) && hospitals ? (

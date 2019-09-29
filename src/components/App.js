@@ -2,12 +2,12 @@ import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
-import Header from './components/Header/Header';
-import Home from './components/Home/Home';
-import HospitalsOverview from './components/HospitalsOverview/HospitalsOverview';
-import Patient from './components/Patient/Patient';
-import Patients from './components/Patients/Patients';
-import Page404 from './components/Page404/Page404';
+import Header from './Header/Header';
+import Home from './Home/Home';
+import HospitalsOverview from './HospitalsOverview/HospitalsOverview';
+import Patient from './Patient/Patient';
+import Patients from './Patients/Patients';
+import Page404 from './Page404/Page404';
 
 const history = createBrowserHistory();
 
