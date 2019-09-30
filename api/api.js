@@ -118,10 +118,10 @@ app.post('/patientForm', (req, res) => {
     firstName &&
     lastName &&
     illness &&
-    (severity !== undefined || severity !== null) &&
+    (severity !== undefined && severity !== null) &&
     hospital &&
-    (hospital.id !== undefined || hospital.id !== null) &&
-    (hospital.totalWaitTime !== undefined || hospital.totalWaitTime !== null)
+    (hospital.id !== undefined && hospital.id !== null) &&
+    (hospital.totalWaitTime !== undefined && hospital.totalWaitTime !== null)
   ) {
     waitListDB[hospital.id][severity].patientCount += 1;
 

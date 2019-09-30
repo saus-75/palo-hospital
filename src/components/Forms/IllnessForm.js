@@ -1,10 +1,14 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { Pane, FormField, Combobox, SegmentedControl, toaster, TextInputField } from 'evergreen-ui';
 import { withRouter } from 'react-router';
+import * as yup from 'yup';
+
 import queries from '../../queries';
 import HospitalListForm from './HospitalListForm';
+import FormsConstants from './Forms.constants';
 
 const { getAllIllnesses, getAllSeverity, getHospitalsBySeverity, postPatientForm } = queries;
+const { labels } = FormsConstants;
 
 const IllnessForm = ({ history }) => {
   const [illnesses, setIllnesses] = useState(null);
@@ -15,6 +19,7 @@ const IllnessForm = ({ history }) => {
   const [lastName, setLastName] = useState(null);
   const [illness, setIllness] = useState(null);
   const [severity, setSeverity] = useState(0);
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,14 +58,46 @@ const IllnessForm = ({ history }) => {
         toaster.danger('Error retrieving hospitals');
       }
     };
-
-    if (severity !== null || severity !== undefined) {
+    if (severity !== null && severity !== undefined) {
       fetchData();
     }
     return () => {
       setHospitals(null);
     };
   }, [severity]);
+
+  const validateData = () => {
+    const schema = yup.object().shape({
+      firstName: yup.string().required(labels.firstNameIsRequired),
+      lastName: yup.string().required(labels.lastNameIsRequired),
+      illness: yup.object().shape({ name: yup.string(), id: yup.number() }),
+      severity: yup
+        .number()
+        .min(0)
+        .max(4)
+    });
+
+    try {
+      schema.validateSync(
+        {
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          severity: severity
+        },
+        { abortEarly: false, returnError: true }
+      );
+    } catch (error) {
+      if (error.name === 'ValidationError' && error.errors.length > 0) {
+        const newErrors = {};
+        error.inner.forEach(fieldError => {
+          newErrors[fieldError.path] = fieldError.message;
+        });
+        setErrors(newErrors);
+        return false;
+      }
+    }
+    return true;
+  };
 
   const handleFirstName = event => {
     const { value } = event.target;
@@ -102,6 +139,9 @@ const IllnessForm = ({ history }) => {
       severity,
       hospital
     };
+    const isValid = validateData();
+    if (!isValid) return;
+
     try {
       const result = await postPatientForm({ formData });
       const { userId } = result;
@@ -120,6 +160,8 @@ const IllnessForm = ({ history }) => {
           width='50%'
           disabled={!illnesses}
           onChange={handleFirstName}
+          isInvalid={Boolean(errors.firstName)}
+          validationMessage={errors.firstName}
         />
         <TextInputField
           label='Last Name'
@@ -127,6 +169,8 @@ const IllnessForm = ({ history }) => {
           width='50%'
           disabled={!illnesses}
           onChange={handleLastName}
+          isInvalid={Boolean(errors.lastName)}
+          validationMessage={errors.lastName}
         />
       </Pane>
       {firstName && lastName && (
@@ -138,6 +182,8 @@ const IllnessForm = ({ history }) => {
             itemToString={item => (item ? item.name : '')}
             onChange={handleIllnessSelection}
             disabled={!illnesses}
+            isInvalid={Boolean(errors.illness)}
+            validationMessage={errors.illness}
           />
         </FormField>
       )}
@@ -146,7 +192,7 @@ const IllnessForm = ({ history }) => {
           <SegmentedControl options={severities} defaultValue={0} value={severity} onChange={handleSeveritySelection} />
         </FormField>
       )}
-      {illness && (severity !== null || severity !== undefined) && hospitals ? (
+      {illness && (severity !== null && severity !== undefined) && hospitals ? (
         <FormField margin='15px' width='100%' label='Select a Hospital To Get Direction'>
           <HospitalListForm hospitals={hospitals} submitForm={submitForm} />
         </FormField>
