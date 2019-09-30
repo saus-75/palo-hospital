@@ -114,8 +114,20 @@ const IllnessForm = ({ history }) => {
   return (
     <Fragment>
       <Pane margin='10px' width='60%' display='flex'>
-        <TextInputField label='First Name' marginRight='15px' width='50%' onChange={handleFirstName} />
-        <TextInputField label='Last Name' marginRight='15px' width='50%' onChange={handleLastName} />
+        <TextInputField
+          label='First Name'
+          marginRight='15px'
+          width='50%'
+          disabled={!illnesses}
+          onChange={handleFirstName}
+        />
+        <TextInputField
+          label='Last Name'
+          marginRight='15px'
+          width='50%'
+          disabled={!illnesses}
+          onChange={handleLastName}
+        />
       </Pane>
       {firstName && lastName && (
         <FormField margin='15px' label='Select an Illness'>

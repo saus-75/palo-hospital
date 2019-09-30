@@ -1,0 +1,5 @@
+{
+  "coveragePathIgnorePatterns": ["/node_modules/", "<rootDir>/src/"],
+  "watchPathIgnorePatterns": ["/node_modules/", "<rootDir>/src/"],
+  "testEnvironment": "node"
+}

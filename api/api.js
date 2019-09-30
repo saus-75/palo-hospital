@@ -111,7 +111,15 @@ app.post('/postPatientForm', (req, res) => {
     body: { firstName, lastName, illness, severity, hospital }
   } = req;
 
-  if (firstName && lastName && illness && severity && hospital && hospital.id && hospital.totalWaitTime) {
+  if (
+    firstName &&
+    lastName &&
+    illness &&
+    (severity !== undefined || severity !== null) &&
+    hospital &&
+    hospital.id &&
+    hospital.totalWaitTime
+  ) {
     waitListDB[hospital.id][severity].patientCount += 1;
 
     patientDB[userId] = {
