@@ -21,6 +21,8 @@ const illnessDB = [];
 const severityDB = severity;
 const patientDB = patient;
 
+const SEVERITY = { MIN: 0, MAX: 4 };
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
@@ -73,7 +75,7 @@ app.get('/getHospitalsBySeverity', (req, res) => {
     query: { severityId }
   } = req;
 
-  if (severityId && severityId >= 0 && severityId <= 4) {
+  if (severityId && severityId >= SEVERITY.MIN && severityId <= SEVERITY.MAX) {
     const hospitals = hospitalDB.map(hospital => {
       const { id, name, location } = hospital;
       const waitingList = waitListDB[id];
