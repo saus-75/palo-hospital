@@ -15,6 +15,7 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
+    "cross-env": "^6.0.0",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.18.2",
@@ -22,16 +23,16 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
+    "jest": "^24.9.0",
     "nodemon": "^1.19.2",
-    "react-scripts": "^3.1.2"
+    "react-scripts": "^3.1.2",
+    "supertest": "^4.0.2"
   },
   "scripts": {
     "client": "yarn start",
     "serve": "./node_modules/.bin/nodemon ./api/server.js",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "cross-env NODE_ENV=test jest --watch --verbose --testTimeout=10000"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,5 +42,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  }
 }

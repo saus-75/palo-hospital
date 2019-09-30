@@ -13,7 +13,7 @@ const retrieveHospitalList = async link => {
     }
     return hospitals;
   } catch (error) {
-    console.error(error);
+    return error;
   }
 };
 
@@ -30,12 +30,22 @@ const retrieveIllnessList = async link => {
     }
     return illnesses;
   } catch (error) {
-    console.error(error);
+    return error;
   }
 };
 
 const calculateWaitingTime = waitingList => {
-  return (waitingList.reduce((a, b) => a + +b.averageProcessTime * b.patientCount, 0) / 60).toFixed(2);
+  if (waitingList) {
+    return (
+      waitingList.reduce((a, b) => {
+        if (b.averageProcessTime && b.patientCount) {
+          return a + +b.averageProcessTime * b.patientCount;
+        }
+        return a + +0;
+      }, 0) / 60
+    ).toFixed(2);
+  }
+  return (0).toFixed(2);
 };
 
 module.exports = {
