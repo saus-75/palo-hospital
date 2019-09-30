@@ -31,7 +31,7 @@ describe('Test getRequest', () => {
   });
 
   it('Should return an object if given valid API endpint', async () => {
-    const link = 'http://localhost:5000/getAllHospitals';
+    const link = 'http://localhost:5000/hospitals';
     fetch.mockResponseOnce();
     const res = await getRequest({ link });
     expect(res).toHaveProperty('hospitals');
@@ -54,7 +54,7 @@ describe('Test postRequest', () => {
   });
 
   it('Should return an object if given valid API endpint', async () => {
-    const link = 'http://localhost:5000/postPatientForm';
+    const link = 'http://localhost:5000/patientForm';
     const body = JSON.stringify({
       firstName: 'George',
       lastName: 'client',

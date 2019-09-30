@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
-app.get('/getAllHospitals', (req, res) => {
+app.get('/hospitals', (req, res) => {
   if (hospitalDB) {
     const hospitals = hospitalDB.map(hospital => {
       const { id, name, location } = hospital;
@@ -41,7 +41,7 @@ app.get('/getAllHospitals', (req, res) => {
   }
 });
 
-app.get('/getAllIllnesses', (req, res) => {
+app.get('/illnesses', (req, res) => {
   if (illnessDB) {
     res.json({ illnesses: illnessDB });
   } else {
@@ -49,7 +49,7 @@ app.get('/getAllIllnesses', (req, res) => {
   }
 });
 
-app.get('/getAllSeverity', (req, res) => {
+app.get('/severity', (req, res) => {
   if (severityDB) {
     res.json({ severities: severityDB });
   } else {
@@ -57,7 +57,7 @@ app.get('/getAllSeverity', (req, res) => {
   }
 });
 
-app.get('/getAllPatients', (req, res) => {
+app.get('/patients', (req, res) => {
   if (patientDB) {
     const patients = Object.keys(patientDB).map(key => {
       const { firstName, lastName, illness, severity, hospitalId } = patientDB[key];
@@ -70,7 +70,7 @@ app.get('/getAllPatients', (req, res) => {
   }
 });
 
-app.get('/getHospitalsBySeverity', (req, res) => {
+app.get('/hospitalBySeverity', (req, res) => {
   const {
     query: { severityId }
   } = req;
@@ -85,11 +85,11 @@ app.get('/getHospitalsBySeverity', (req, res) => {
     });
     res.json({ hospitals });
   } else {
-    res.status(404).json({ error: 'Invalid Severity ID' });
+    res.status(400).json({ error: 'Invalid Severity ID' });
   }
 });
 
-app.get('/getPatient', (req, res) => {
+app.get('/patient', (req, res) => {
   const {
     query: { userId }
   } = req;
@@ -103,11 +103,12 @@ app.get('/getPatient', (req, res) => {
     } else {
       res.status(404).json({ error: 'Patient not found' });
     }
+  } else {
+    res.status(400).json({ error: 'Invalid Patient ID' });
   }
-  res.status(404).json({ error: 'Invalid Patient ID' });
 });
 
-app.post('/postPatientForm', (req, res) => {
+app.post('/patientForm', (req, res) => {
   const userId = uuid();
   const {
     body: { firstName, lastName, illness, severity, hospital }
@@ -119,8 +120,8 @@ app.post('/postPatientForm', (req, res) => {
     illness &&
     (severity !== undefined || severity !== null) &&
     hospital &&
-    hospital.id &&
-    hospital.totalWaitTime
+    (hospital.id !== undefined || hospital.id !== null) &&
+    (hospital.totalWaitTime !== undefined || hospital.totalWaitTime !== null)
   ) {
     waitListDB[hospital.id][severity].patientCount += 1;
 
@@ -134,7 +135,7 @@ app.post('/postPatientForm', (req, res) => {
     };
     res.json({ userId });
   } else {
-    res.status(404).json({ error: 'Missing values, cannot add user' });
+    res.status(400).json({ error: 'Missing values, cannot add user' });
   }
 });
 

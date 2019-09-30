@@ -40,16 +40,18 @@ const Patient = ({ match }) => {
         </PatientDetail>
       ) : (
         <Fragment>
-          <PatientDetail size={900}>{`${patient.firstName} ${patient.lastName}`}</PatientDetail>
-          <PatientDetail size={600}>{`Illness: ${patient.illness.name}`}</PatientDetail>
-          <PatientDetail size={600}>{`Severity: ${patient.severity.label}`}</PatientDetail>
+          <PatientDetail size={900}>
+            {patient.firstName} {patient.lastName}
+          </PatientDetail>
+          <PatientDetail size={600}>Illness: {patient.illness.name}</PatientDetail>
+          <PatientDetail size={600}>Severity: {patient.severity.label}</PatientDetail>
           <Link
             color='green'
             href={createLocationLink({ lat: patient.hospital.location.lat, lng: patient.hospital.location.lng })}
           >
-            <PatientDetail size={600}>{`Hospital: ${patient.hospital.name}`}</PatientDetail>
+            <PatientDetail size={600}>Hospital: {patient.hospital.name}</PatientDetail>
           </Link>
-          <PatientDetail size={600}>{`Wait Time: ~${patient.totalWaitTime} hours`}</PatientDetail>
+          <PatientDetail size={600}>Wait Time: ~{patient.totalWaitTime} hours</PatientDetail>
         </Fragment>
       )}
     </PatientPane>

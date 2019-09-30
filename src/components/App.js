@@ -17,7 +17,7 @@ const App = () => {
       <Header history={history} />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/hospitalsOverview' component={HospitalsOverview} />
+        <Route exact path='/hospitals' component={HospitalsOverview} />
         <Route exact path='/patients' component={Patients} />
         <Route exact path='/patient/:id' component={Patient} />
         <Route component={Page404} />

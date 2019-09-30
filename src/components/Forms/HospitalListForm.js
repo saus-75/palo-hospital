@@ -17,11 +17,8 @@ const HospitalListForm = ({ hospitals, submitForm }) => {
               <CardPane key={id} onClick={event => handleCardClick(event, hospital)}>
                 <CardBody>
                   <CardHeading>{name}</CardHeading>
-                  <CardText>{`Wait Time: ${totalWaitTime} hours`}</CardText>
-                  <CardText>{`Total Patients: ${filteredWaitingList.reduce(
-                    (a, b) => a + +b.patientCount,
-                    0
-                  )}`}</CardText>
+                  <CardText>Wait Time: {totalWaitTime} hours</CardText>
+                  <CardText>Total Patients: {filteredWaitingList.reduce((a, b) => a + +b.patientCount, 0)}</CardText>
                 </CardBody>
               </CardPane>
             );

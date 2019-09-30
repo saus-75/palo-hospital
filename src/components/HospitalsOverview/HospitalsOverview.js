@@ -18,13 +18,13 @@ const HospitalsOverview = () => {
         const response = await getAllHospitals();
         const { hospitals } = response;
 
-        const Locatedhospitals = hospitals.map(hospital => {
+        const locatedHospitals = hospitals.map(hospital => {
           const {
             location: { lat, lng }
           } = hospital;
           return { ...hospital, locationLink: createLocationLink({ lat, lng }) };
         });
-        setHospitals(Locatedhospitals.sort((a, b) => a.totalWaitTime - b.totalWaitTime));
+        setHospitals(locatedHospitals.sort((a, b) => a.totalWaitTime - b.totalWaitTime));
       } catch (error) {
         toaster.danger('Error retrieving hospital list');
       }
@@ -57,9 +57,9 @@ const HospitalsOverview = () => {
                 return (
                   <Table.Row padding='5px' height='auto' textAlign='center' key={id}>
                     <TableCell>{name}</TableCell>
-                    <TableCell>{`${totalWaitTime} hr`}</TableCell>
-                    <TableCell>{`x: ${lat}`}</TableCell>
-                    <TableCell>{`y: ${lng}`}</TableCell>
+                    <TableCell>{totalWaitTime} hr</TableCell>
+                    <TableCell>x: {lat}</TableCell>
+                    <TableCell>y: {lng}</TableCell>
                     <TableCell>
                       <a href={locationLink}>
                         <Icon align-self='end' icon='geolocation' />

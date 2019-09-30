@@ -12,7 +12,7 @@ const Header = ({ history }) => {
         <Tab padding='15px' color='#f3f3f3' size={500} onSelect={() => history.push('/')}>
           Home
         </Tab>
-        <Tab padding='15px' color='#f3f3f3' size={500} onSelect={() => history.push('/hospitalsOverview')}>
+        <Tab padding='15px' color='#f3f3f3' size={500} onSelect={() => history.push('/hospitals')}>
           Hospitals
         </Tab>
         <Tab padding='15px' color='#f3f3f3' size={500} onSelect={() => history.push('/patients')}>

@@ -44,7 +44,9 @@ const Patients = () => {
                 return (
                   <Table.Row padding='5px' height='auto' textAlign='center' key={id}>
                     <TableCell>{id}</TableCell>
-                    <TableCell>{`${firstName} ${lastName}`}</TableCell>
+                    <TableCell>
+                      {firstName} {lastName}
+                    </TableCell>
                     <TableCell>{illness.name}</TableCell>
                     <TableCell>{severity}</TableCell>
                     <TableCell>{hospital}</TableCell>
